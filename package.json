@@ -1,0 +1,27 @@
+{
+    "name"        : "html2img",
+    "version"     : "1.0.0",
+    "description" : "HTML 转成 IMG",
+    "main"        : "./src/index.js",
+    "scripts"     : {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository"  : {
+        "type": "git",
+        "url" : "git+https://github.com/zwmmm/html2img.git"
+    },
+    "keywords"    : [
+        "canvas",
+        "img",
+        "html"
+    ],
+    "author"      : "zwmmm",
+    "license"     : "ISC",
+    "bugs"        : {
+        "url": "https://github.com/zwmmm/html2img/issues"
+    },
+    "homepage"    : "https://github.com/zwmmm/html2img#readme",
+    "dependencies": {
+        "html2canvas": "^1.0.0-rc.5"
+    }
+}
