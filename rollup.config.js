@@ -10,21 +10,27 @@ export default {
     input: './src/index.ts',
     output: [
         {
-            file: `./dist/${ PCKNAME }.umd.js`,
+            file: `./dist/${PCKNAME}.umd.js`,
             format: 'umd',
             name: PCKNAME
         },
         {
-            file: `./dist/${ PCKNAME }.esm.js`,
+            file: `./dist/${PCKNAME}.esm.js`,
             format: 'es'
         }
     ],
-    external: ['html2canvas'],
+    external: ['html2canvas', '@babel/runtime-corejs3', 'core-js'],
     plugins: [
-        babel(),
-        filesize(), // 显示打包之后的文件大小
-        resolve(), // 引入 node_modules
+        resolve({
+            extensions: [".js", ".ts"],
+        }), // 引入 node_modules
         commonjs(), // 将 commonjs 的包使用 es6 模块化引入
+        babel({
+            extensions: [".js", ".ts"],
+            exclude: "node_modules/**",
+            runtimeHelpers: true
+        }),
         // terser(), // 压缩代码
+        filesize(), // 显示打包之后的文件大小
     ]
 }

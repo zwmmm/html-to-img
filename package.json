@@ -2,9 +2,10 @@
     "name": "html2img",
     "version": "1.0.0",
     "description": "HTML 转成 IMG",
-    "main": "./dist/html2img.js.js",
+    "main": "./dist/html2img.umd.js",
+    "module": "./dist/html2img.esm.js",
     "scripts": {
-        "serve": "tsc && rollup -c"
+        "serve": "rollup -c"
     },
     "repository": {
         "type": "git",
@@ -22,14 +23,21 @@
     },
     "homepage": "https://github.com/zwmmm/html2img#readme",
     "dependencies": {
+        "core-js": "^3.5.0",
         "global": "^4.4.0",
         "html2canvas": "^1.0.0-rc.5",
         "tslib": "^1.10.0",
         "typescript": "^3.7.3"
     },
     "devDependencies": {
+        "@babel/core": "^7.7.5",
+        "@babel/plugin-proposal-class-properties": "^7.7.4",
+        "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+        "@babel/plugin-transform-runtime": "^7.7.6",
+        "@babel/preset-env": "^7.7.6",
+        "@babel/preset-typescript": "^7.7.4",
+        "@babel/runtime-corejs3": "^7.7.6",
         "@rollup/plugin-node-resolve": "^6.0.0",
-        "@rollup/plugin-typescript": "^2.0.1",
         "rollup": "^1.27.10",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",
