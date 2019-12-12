@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "esModuleInterop": true,
+        "target": "es6",
+        "module": "es6",
+        "declaration": true,
+        "declarationDir": "./types",
+        "moduleResolution": "node",
+        "downlevelIteration": true,
+        "removeComments": true
+    },
+    "exclude": ["./node_modules/**"]
+}

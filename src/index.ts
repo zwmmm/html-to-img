@@ -1,23 +1,21 @@
 import { parseHtml, html2img } from './utils'
 
 interface options {
-    debug: boolean
-    scale: number
-    base64: boolean
+    debug?: boolean
+    scale?: number
+    base64?: boolean
 }
 
 /**
  * 将 html 转成 img
  * @param element: HTMLElement
- * @param props: object
  * @param options: options
  */
-export default async function(
+export default async (
     element: HTMLElement,
-    props: object,
-    options: options
-): Promise<string> {
-    const { debug = false, scale = 2, base64 = false } = options
+    options?: options
+): Promise<string> => {
+    const { debug = false, scale = 2, base64 = false } = options || {}
 
     const html: HTMLElement = base64 ? await parseHtml(element) : element
     document.body.appendChild(html)

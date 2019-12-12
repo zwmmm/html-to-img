@@ -12,7 +12,7 @@ function genBase64(src: string): Promise<string> {
 
             // 创建 canvas
             const canvas: HTMLCanvasElement = document.createElement('canvas')
-            const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
+            const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d')
             const img: HTMLImageElement = new Image()
 
             // 将图片画到 canvas 上
@@ -22,7 +22,7 @@ function genBase64(src: string): Promise<string> {
                 canvas.width = img.width
                 canvas.height = img.height
 
-                ctx.drawImage(img, 0, 0)
+                ctx && ctx.drawImage(img, 0, 0)
                 resolve(
                     canvas.toDataURL('image/png')
                 )
@@ -39,12 +39,12 @@ function genBase64(src: string): Promise<string> {
 async function parseHtml(html: HTMLElement): Promise<HTMLElement> {
     try {
         // 找出所有的 img
-        const imgs: NodeListOf<HTMLImageElement> = html.querySelectorAll('img')
+        const imgList: NodeListOf<HTMLImageElement> = html.querySelectorAll('img')
 
         // 生成对应 img 的 base64地址
-        const task: Array<Promise<string>> = Array.from(imgs, item => genBase64(item.src))
+        const task: Array<Promise<string>> = Array.from(imgList, item => genBase64(item.src))
         const urls: Array<string> = await Promise.all(task)
-        urls.forEach((url, i) => (imgs[i].src = url))
+        urls.forEach((url, i) => (imgList[i].src = url))
     } catch (e) {
         console.error(e, '图片错误')
         return e
