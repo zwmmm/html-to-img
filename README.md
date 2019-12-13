@@ -1,8 +1,8 @@
 # html-to-img
 
-![GitHub file size in bytes](https://img.shields.io/github/size/zwmmm/html2img/dist/html2img.esm.js)
+<img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/zwmmm/html2img/dist/html2img.esm.js">
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/zwmmm/html2img)
+<img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/zwmmm/html2img">
 
 ## 使用
 
