@@ -1,6 +1,6 @@
 {
     "name": "html-to-img",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "HTML 转成 IMG",
     "main": "./dist/html2img.umd.js",
     "module": "./dist/html2img.esm.js",
@@ -24,10 +24,10 @@
     },
     "homepage": "https://github.com/zwmmm/html2img#readme",
     "dependencies": {
-        "html2canvas": "^1.0.0-rc.5"
+        "html2canvas": "^1.0.0-rc.5",
+        "@babel/runtime-corejs3": "^7.7.6"
     },
     "devDependencies": {
-        "@babel/runtime-corejs3": "^7.7.6",
         "@babel/core": "^7.7.5",
         "@babel/plugin-proposal-class-properties": "^7.7.4",
         "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
