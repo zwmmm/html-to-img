@@ -20,9 +20,10 @@ export default {
             format: 'es'
         }
     ],
-    external: ['html2canvas', '@babel/runtime-corejs3', 'core-js'],
     plugins: [
-        externals(),
+        externals({
+            deps: true
+        }),
         resolve({
             extensions: [".js", ".ts"],
         }), // 引入 node_modules

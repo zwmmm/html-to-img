@@ -981,11 +981,6 @@ core-js-pure@^3.0.0:
   resolved "https://registry.npm.taobao.org/core-js-pure/download/core-js-pure-3.5.0.tgz?cache=0&sync_timestamp=1576112322633&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js-pure%2Fdownload%2Fcore-js-pure-3.5.0.tgz#f63c7f2b245e7d678e73f87ad28505480554d70e"
   integrity sha1-9jx/KyRefWeOc/h60oUFSAVU1w4=
 
-core-js@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.5.0.tgz?cache=0&sync_timestamp=1576112446173&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.5.0.tgz#66df8e49be4bd775e6f952a9d083b756ad41c1ed"
-  integrity sha1-Zt+OSb5L13Xm+VKp0IO3Vq1Bwe0=
-
 css-line-break@1.1.1:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/css-line-break/download/css-line-break-1.1.1.tgz#d5e9bdd297840099eb0503c7310fd34927a026ef"
