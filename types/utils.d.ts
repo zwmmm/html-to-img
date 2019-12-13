@@ -4,4 +4,6 @@ interface options {
     scale: number;
 }
 declare function html2img(html: HTMLElement, options: options): Promise<string>;
-export { genBase64, parseHtml, html2img, };
+declare function setStyle(node: HTMLElement): void;
+declare function setDebugStyle(node: HTMLElement): void;
+export { genBase64, parseHtml, html2img, setStyle, setDebugStyle };

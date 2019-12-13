@@ -95,8 +95,20 @@ async function html2img(
     }
 }
 
+function setStyle(node: HTMLElement): void {
+    node.style.position = 'fixed'
+    node.style.left = '-100vw'
+    node.style.top = '0'
+}
+
+function setDebugStyle(node: HTMLElement): void {
+    node.style.left = '0'
+}
+
 export {
     genBase64,
     parseHtml,
     html2img,
+    setStyle,
+    setDebugStyle
 }

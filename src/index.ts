@@ -1,4 +1,4 @@
-import { parseHtml, html2img } from './utils'
+import { parseHtml, html2img, setDebugStyle, setStyle } from './utils'
 
 interface options {
     debug?: boolean
@@ -16,11 +16,16 @@ export default async (
     options?: options
 ): Promise<string> => {
     const { debug = false, scale = 2, base64 = false } = options || {}
+    const node: HTMLElement = <HTMLElement>element.cloneNode(true)
 
-    const html: HTMLElement = base64 ? await parseHtml(element) : element
+    setStyle(node)
+
+    const html: HTMLElement = base64 ? await parseHtml(node) : node
+
     document.body.appendChild(html)
 
     if (debug) {
+        setDebugStyle(node)
         return Promise.resolve('')
     }
 
