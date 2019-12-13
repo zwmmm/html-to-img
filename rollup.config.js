@@ -3,6 +3,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import filesize from 'rollup-plugin-filesize'
 import babel from 'rollup-plugin-babel'
+import externals from 'rollup-plugin-node-externals'
 
 const PCKNAME = 'html2img'
 
@@ -21,6 +22,7 @@ export default {
     ],
     external: ['html2canvas', '@babel/runtime-corejs3', 'core-js'],
     plugins: [
+        externals(),
         resolve({
             extensions: [".js", ".ts"],
         }), // 引入 node_modules
@@ -30,7 +32,7 @@ export default {
             exclude: "node_modules/**",
             runtimeHelpers: true
         }),
-        // terser(), // 压缩代码
+        terser(), // 压缩代码
         filesize(), // 显示打包之后的文件大小
     ]
 }
