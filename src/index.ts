@@ -1,9 +1,15 @@
 import { parseHtml, html2img, setDebugStyle, setStyle } from './utils'
+import { vueComponentToHtml } from './vue'
 
-interface options {
+interface Options {
     debug?: boolean
     scale?: number
     base64?: boolean
+}
+
+export {
+    Options,
+    vueComponentToHtml
 }
 
 /**
@@ -13,7 +19,7 @@ interface options {
  */
 export default async (
     element: HTMLElement,
-    options?: options
+    options?: Options
 ): Promise<string> => {
     const { debug = false, scale = 2, base64 = false } = options || {}
     const node: HTMLElement = <HTMLElement>element.cloneNode(true)

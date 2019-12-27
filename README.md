@@ -16,6 +16,24 @@ html2img(
 )
 ```
 
+Vue 中使用
+```js
+import htmlToImg, { vueComponentToHtml } from 'html-to-img'
+import Vue from 'vue'
+
+const WordsPoster = {
+    render(h) {
+        return h('div')
+    }
+}
+
+htmlToImg(
+    vueComponentToHtml(WordsPoster, Vue)
+).then(
+    src => console.log(src)
+)
+```
+
 当然这样直接转换 img 不容易调试，所以需要使用第二个参数 options，options 包含如下的参数
 
 |参数名称|用途|默认值|

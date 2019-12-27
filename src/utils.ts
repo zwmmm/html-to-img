@@ -1,5 +1,7 @@
 import html2canvas from 'html2canvas'
 
+const URL_MATCH_REX = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/
+
 /**
  * 生成 base64 地址
  * @param src: string
@@ -8,7 +10,7 @@ function genBase64(src: string): Promise<string> {
     return new Promise<string>(
         (resolve, rejects) => {
             // 校验 src 是否正确
-            if (src.match(/base64/)) return resolve(src)
+            if (!src.match(URL_MATCH_REX)) return resolve(src)
 
             // 创建 canvas
             const canvas: HTMLCanvasElement = document.createElement('canvas')
@@ -53,7 +55,7 @@ async function parseHtml(html: HTMLElement): Promise<HTMLElement> {
     }
 }
 
-interface options {
+interface Options {
     scale: number;
 }
 
@@ -64,7 +66,7 @@ interface options {
  */
 async function html2img(
     html: HTMLElement,
-    options: options
+    options: Options
 ): Promise<string> {
     try {
         const myCanvas: HTMLCanvasElement = document.createElement('canvas')
@@ -105,10 +107,12 @@ function setDebugStyle(node: HTMLElement): void {
     node.style.left = '0'
 }
 
+
+
 export {
     genBase64,
     parseHtml,
     html2img,
     setStyle,
-    setDebugStyle
+    setDebugStyle,
 }

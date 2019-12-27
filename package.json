@@ -1,12 +1,12 @@
 {
     "name": "html-to-img",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "HTML 转成 IMG",
     "main": "./dist/html2img.umd.js",
     "module": "./dist/html2img.esm.js",
     "types": "./types/index.d.ts",
     "scripts": {
-        "build": "rm -rf types && tsc --emitDeclarationOnly && rollup -c"
+        "build": "rimraf types && tsc --emitDeclarationOnly && rollup -c"
     },
     "repository": {
         "type": "git",
@@ -37,6 +37,7 @@
         "@rollup/plugin-node-resolve": "^6.0.0",
         "global": "^4.4.0",
         "mocha": "^6.2.2",
+        "rimraf": "^3.0.0",
         "rollup": "^1.27.10",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",

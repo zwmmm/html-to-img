@@ -17,7 +17,8 @@ export default {
         },
         {
             file: `./dist/${PCKNAME}.esm.js`,
-            format: 'es'
+            format: 'es',
+            exports: 'named'
         }
     ],
     plugins: [
@@ -34,6 +35,5 @@ export default {
             runtimeHelpers: true
         }),
         terser(), // 压缩代码
-        filesize(), // 显示打包之后的文件大小
     ]
 }
