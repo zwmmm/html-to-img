@@ -1,30 +1,24 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
-import filesize from 'rollup-plugin-filesize'
 import babel from 'rollup-plugin-babel'
 import externals from 'rollup-plugin-node-externals'
 
 const PCKNAME = 'html2img'
 
-export default {
-    input: './src/index.ts',
-    output: [
-        {
+function createConfig(mode) {
+    const outputs = {
+        umd: {
             file: `./dist/${PCKNAME}.umd.js`,
             format: 'umd',
             name: PCKNAME
         },
-        {
+        esm: {
             file: `./dist/${PCKNAME}.esm.js`,
-            format: 'es',
-            exports: 'named'
+            format: 'es'
         }
-    ],
-    plugins: [
-        externals({
-            deps: true
-        }),
+    }
+    const plugins = [
         resolve({
             extensions: [".js", ".ts"],
         }), // 引入 node_modules
@@ -36,4 +30,20 @@ export default {
         }),
         terser(), // 压缩代码
     ]
+    if (mode === 'esm') {
+        plugins.unshift(externals({
+            deps: true
+        }))
+    }
+    return {
+        input: './src/index.ts',
+        output: outputs[mode],
+        plugins
+    }
 }
+
+
+export default [
+    createConfig('esm'),
+    createConfig('umd'),
+]

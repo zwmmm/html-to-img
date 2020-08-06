@@ -5,5 +5,5 @@ interface Options {
     base64?: boolean;
 }
 export { Options, vueComponentToHtml };
-declare const _default: (element: HTMLElement, options?: Options | undefined) => Promise<string>;
+declare const _default: (element: HTMLElement, options?: Options | undefined, callback?: ((url: string) => void) | undefined) => Promise<string>;
 export default _default;

@@ -16,10 +16,12 @@ export {
  * 将 html 转成 img
  * @param element: HTMLElement
  * @param options: options
+ * @param callback
  */
 export default async (
     element: HTMLElement,
-    options?: Options
+    options?: Options,
+    callback?: (url: string) => void
 ): Promise<string> => {
     const { debug = false, scale = 2, base64 = false } = options || {}
     const node: HTMLElement = <HTMLElement>element.cloneNode(true)
@@ -37,5 +39,6 @@ export default async (
 
     const url: string = await html2img(html, { scale })
     document.body.removeChild(html)
+    callback && callback(url)
     return url
 }
