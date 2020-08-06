@@ -2,7 +2,6 @@ const { prompt } = require('enquirer')
 const chalk = require('chalk')
 const execa = require('execa')
 const semver = require('semver')
-const args = require('minimist')(process.argv.slice(2))
 const path = require('path')
 const fs = require('fs')
 
@@ -24,7 +23,7 @@ function updateVersions(version) {
 }
 
 async function main() {
-  let targetVersion = args._[0]
+  let targetVersion = ''
   const { release } = await prompt({
     type: 'select',
     name: 'release',
@@ -65,7 +64,7 @@ async function main() {
 
   step('\nPublishing packages...')
   await run('nrm', ['use', 'npm'])
-  await run('yarn', ['publish', '--new-version', targetVersion])
+  await run('npm', ['publish'])
 
   step('\nPushing to GitHub...')
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
@@ -80,8 +79,8 @@ async function main() {
 }
 
 main().then(() => {
-  step('\nPublishing success')
+  step('\nRelease success')
 }).catch(() => {
-  step('\nPublishing error')
+  step('\nRelease error')
 })
 
