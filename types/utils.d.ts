@@ -1,5 +1,5 @@
 declare function genBase64(src: string): Promise<string>;
-declare function parseHtml(html: HTMLElement): Promise<HTMLElement>;
+declare function parseHtml(html: HTMLElement, base64: boolean): Promise<HTMLElement>;
 interface Options {
     scale: number;
 }

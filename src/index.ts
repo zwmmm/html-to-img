@@ -28,7 +28,7 @@ export default async (
 
     setStyle(node)
 
-    const html: HTMLElement = base64 ? await parseHtml(node) : node
+    const html: HTMLElement = await parseHtml(node, base64)
 
     document.body.appendChild(html)
 

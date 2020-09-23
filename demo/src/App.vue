@@ -20,7 +20,7 @@ export default {
   components: { HelloWorld },
   data: () => ({ base64: '' }),
   async mounted() {
-    this.base64 = await html2img(this.$refs.hello.$el, { debug: false, scale: 4 })
+    this.base64 = await html2img(this.$refs.hello.$el, { debug: true, scale: 4 })
   }
 }
 </script>

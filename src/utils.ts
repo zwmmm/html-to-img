@@ -37,12 +37,17 @@ function genBase64(src: string): Promise<string> {
 /**
  * 解析 html 中的 img
  * @param html: HTMLElement
+ * @param base64
  */
-async function parseHtml(html: HTMLElement): Promise<HTMLElement> {
+async function parseHtml(html: HTMLElement, base64: boolean): Promise<HTMLElement> {
     try {
         // 找出所有的 img
-        const imgList: NodeListOf<HTMLImageElement> = html.querySelectorAll('img')
-
+        let imgList: NodeListOf<HTMLImageElement>
+        if (base64) {
+            imgList = html.querySelectorAll('img')
+        } else {
+            imgList = html.querySelectorAll('img[data-base64]')
+        }
         // 生成对应 img 的 base64地址
         const task: Array<Promise<string>> = Array.from(imgList, item => genBase64(item.src))
         const urls: Array<string> = await Promise.all(task)
