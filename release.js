@@ -64,7 +64,7 @@ async function main() {
 
   step('\nPublishing packages...')
   await run('nrm', ['use', 'npm'])
-  await run('npm', ['publish'])
+  await run('npm', ['publish', '--registry=https://registry.npmjs.org'])
 
   step('\nPushing to GitHub...')
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
