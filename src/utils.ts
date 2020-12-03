@@ -110,6 +110,7 @@ function setStyle(node: HTMLElement): void {
 
 function setDebugStyle(node: HTMLElement): void {
     node.style.left = '0'
+    node.style.zIndex = '2147483647'
 }
 
 
